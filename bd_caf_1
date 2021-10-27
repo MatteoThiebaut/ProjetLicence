@@ -1,32 +1,19 @@
-drop database if exist bd_caf_1;
 create database bd_caf_1;
 
 create table utilisateur (
 
-    id serial,
+    id int,
     login varchar(20),
     profile varchar(14),
     empreinte varchar(32),
     email varchar(56),
 
-  primary key (login)
+  primary key (id)
 );
-
-create table obligatoire(
-    id_user int,
-    id_form int,
-
-    primary key(id_user),
-    primary key(id_form),
-    foreign key(id_user) references utilisateur(id),
-    foreign key(id_form) references cours(id)
-
-)
-
 
 create table cours(
 
-    id serial,
+    id int,
     chemin varchar(250),
     titre varchar(30),
 
@@ -35,18 +22,17 @@ create table cours(
 
 create table quizz(
 
-	id serial,
+	id int,
     titre varchar(30),
     id_cours int,
 
     primary key (id)
 );
 
-alter table quizz ADD CONSTRAINT fk_id_cours foreign key(id_cours) references cours(id);
 
 create table question (
 
-    id serial,
+    id int,
 	quest varchar(250),
 	correct varchar(250),
 	reponse_1 varchar(250),
@@ -55,7 +41,6 @@ create table question (
     id_quizz int,
 
     primary key(id_quizz),
-	foreign key(id_quizz) references quizz(id)
 );
 
 create table score (
@@ -69,6 +54,12 @@ create table score (
     primary key(id),
     foreign key(id_user) references utilisateur(id),
     foreign key(id_quizz) references quizz(id)
+
+);
+
+create table obligatoire(
+    id_user int,
+    id_form int,
 
 );
 
