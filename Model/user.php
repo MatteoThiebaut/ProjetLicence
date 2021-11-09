@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< Updated upstream
 class User
 {
     // Définition des variable de classe
@@ -38,3 +39,14 @@ class User
         }
     }
 }
+=======
+// vérification de la validité des données 
+// function valid_donnees($donnees){
+//     $donnees = trim($donnees);
+//     $donnees = stripslashes($donnees);
+//     $donnees = htmlspecialchars($donnees);
+//     return $donnees;
+// }
+
+?>
+>>>>>>> Stashed changes

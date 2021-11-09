@@ -14,7 +14,7 @@
     	}
     }
     
-    $title = "Login | AllForSport";
+    $title = "Connexion || Plateforme de formation CAF ardennes";
 
     include_once "./View/index.php";
 ?>
