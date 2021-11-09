@@ -5,56 +5,24 @@ class Bdd
     // Définition des variable de classe
     public $nom;
     public $prenom;
-<<<<<<< Updated upstream
-    public $mail;
-=======
     public $email;
->>>>>>> Stashed changes
     public $profil;
     private $login;
     private $pswd;
     public $dbh;
-<<<<<<< Updated upstream
-=======
     public $pok;
->>>>>>> Stashed changes
 
     // Connexion à la base de données :
     public function __construct()
     {
         try {
-<<<<<<< Updated upstream
             $this->dbh = new PDO("mysql:dbname=bd_caf_1;host=127.0.0.1;charset=utf8", "root", "root");
-=======
-            $this->dbh = new PDO("mysql:dbname=bd_caf_2;host=127.0.0.1;charset=utf8", "uti_quizz", "admin");
->>>>>>> Stashed changes
         } catch (PDOException $e) {
             echo 'Connexion échouée : ' . $e->getMessage();
             // Fonction connexion à la base de données si la connexion ne fonctionne pas 
             // On affiche : 'Connexion échouée'
         }
     }
-<<<<<<< Updated upstream
-
-    public function _connexion($login, $pswd)
-    {
-        try {
-            $req = 'SELECT login, empreinte, profile FROM bd_caf_1.utilisateur where login = :login and empreinte = :pswd';
-            $res = $this->dbh->prepare($req);
-            $res->execute([":login" => $login, ":pswd" => $pswd]);
-            $lignes = $res->fetchAll();
-            $userexist = count($lignes);
-            if ($userexist == 1) {
-                $_SESSION['connect'] = true;
-                for($i = 0; $i < count($lignes); $i++){
-                    $_SESSION['profil'] = $lignes[$i]['profile'];
-                }
-                if($_SESSION['profil'] == 'admin'){
-                    header('Location: ../Controller/interface-admin.php');
-                    exit;
-                }else {
-                    header('Location: ../Controller/index.php');
-=======
     // Connexion de l'utilisateur : comparaison de ses informations rentrées avec ceux présents dans la BDD
     public function _connexion($login, $pswd)
     {
@@ -78,16 +46,11 @@ class Bdd
                     exit;
                 }else {
                     header('Location: ./index.php');
->>>>>>> Stashed changes
                     exit;
                 }
                 
             } else {
-<<<<<<< Updated upstream
-                echo '<span style="color: red;">Erreur: Identifiant ou mot de passe non valide.</span>';
-=======
                 echo  '<div style="display: flex;justify-content: center;"><span style="color: red; font-size : 25px; padding:20px;font-family:Arial,sans-serif;">Erreur: Identifiant ou mot de passe non valide.</span></div>';
->>>>>>> Stashed changes
                 // Fonction de connexion avec identifiant et mot de passe en comparant avec la base de données.
                 // Si l'identifiant est incorrecte on affiche : 'Erreur: Identifiant ou mot de passe non valide.'
             }
@@ -97,8 +60,6 @@ class Bdd
         }
     }
 
-<<<<<<< Updated upstream
-=======
     /* Fonctionnalitées administrateur : */
 
     // Insertion d'un nouvel utilisateur depuis l'interface admin :
@@ -247,7 +208,6 @@ class Bdd
         return $donnees;
     }
 
->>>>>>> Stashed changes
 }
 
 ?>

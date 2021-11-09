@@ -3,19 +3,6 @@
     include_once "./Model/bdd.php";
     include_once "./Model/user.php";
     $bdd = new Bdd();
-<<<<<<< Updated upstream
-    // $user = new User();
-
-    if (isset($_SESSION['connect'])){
-        if($_SESSION['connect'] == false){    	
-            header('Location: ../Controller/index.php');
-        }
-    }
-    
-    $title = "Login | AllForSport";
-
-    include_once "./View/index.php";
-=======
     $title = "Page administrateur";
 
     // Vérification que l'utilisateur est connecté
@@ -74,5 +61,4 @@
     $title = "Login | AllForSport";
 
     include_once "./View/interface-admin.php";
->>>>>>> Stashed changes
 ?>
